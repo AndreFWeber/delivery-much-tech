@@ -20,6 +20,7 @@ export default createGlobalStyle`
 
   body {
     height: 100vh;
+    width: 100%;
     background: linear-gradient( to bottom, #ad1515 45%, #000000c9 5%, #000000c9 50%, #d4cbcb 50% );
     -webkit-font-smoothing: antialiased;
   }

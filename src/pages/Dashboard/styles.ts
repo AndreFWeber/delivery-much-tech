@@ -5,16 +5,6 @@ interface CardProps {
   active: boolean;
 }
 
-export const Header = styled.header`
-  font: 48px Pokemon, sans-serif;
-  min-height: 70px;
-  text-shadow: 0px 0px 12px #356abc;
-  -webkit-text-fill-color: #ffcc03;
-  -webkit-text-stroke-color: #356abc;
-  -webkit-text-stroke-width: 2px;
-  text-align: center;
-`;
-
 export const Deck = styled.div`
   font: 16px Pokemon, sans-serif;
   max-width: 1200px;
@@ -78,6 +68,11 @@ export const InfoCard = styled(GenCard)`
   border-width: 1px;
   border-color: black;
   box-shadow: 0px 0px 10px 3px black;
+
+  transition: transform 0.2s;
+  &:hover {
+    transform: rotate(15deg);
+  }
 
   background: linear-gradient(
     to bottom,

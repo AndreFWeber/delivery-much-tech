@@ -6,7 +6,6 @@ import React, {
   useContext,
   useCallback,
   ReactElement,
-  Component,
 } from 'react';
 import { CgPokemon } from 'react-icons/cg';
 import {
@@ -17,10 +16,10 @@ import {
   GiStack,
   GiGiantSquid,
 } from 'react-icons/gi';
-import * as ReactIcons from 'react-icons/all';
 import api from '../../services/api';
+import { Header } from '../../components/Header';
 import { GenerationContext } from '../../context/GenerationContext';
-import { Header, Deck, GenCard, Decko, InfoCard } from './styles';
+import { Deck, GenCard, Decko, InfoCard } from './styles';
 
 interface Generation {
   name: string;
@@ -38,7 +37,8 @@ const Dashboard: React.FC = () => {
   };
 
   const [genCards, setGenCards] = useState<Generation[]>([]);
-  const { name, data, getGeneration } = useContext(GenerationContext);
+  const { data, getGeneration } = useContext(GenerationContext);
+
   const [activeCard, setActiveCard] = useState<Generation>({
     name: '',
     url: '',
@@ -103,7 +103,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <>
-      <Header>Pokemón Games</Header>
+      <Header title="Pokemon Games" subtitle="" />
       <Deck>
         {genCards.map(card => {
           return (
@@ -136,9 +136,7 @@ const Dashboard: React.FC = () => {
               <InfoCard
                 key={card[0]}
                 active={activeCard.name === ''}
-                onClick={e => {
-                  console.log('card');
-                }}
+                href={`/${card[0]}`}
               >
                 <p>{menuCards[card[0]]}</p>
                 {getIcon(card[0])}

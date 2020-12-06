@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { shade } from 'polished';
 
 interface CardProps {
-  active: boolean,
+  active: boolean;
 }
 
 export const Header = styled.header`
@@ -23,7 +23,7 @@ export const Deck = styled.div`
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   justify-items: center;
-  
+
   position: relative;
   top: calc(45% - 230px - 20px);
 `;
@@ -38,7 +38,7 @@ export const GenCard = styled.a<CardProps>`
   width: 110px;
   min-height: 160px;
   border-style: solid;
-  border-radius:12px;
+  border-radius: 12px;
   border-width: 7px;
   border-color: #356abc;
   box-shadow: 0px 0px 10px 3px #356abc;
@@ -47,9 +47,11 @@ export const GenCard = styled.a<CardProps>`
   height: 4rem;
   opacity: 80%;
 
-  ${(props) => props.active && css`
-    opacity: 100%;
-  `}
+  ${props =>
+    props.active &&
+    css`
+      opacity: 100%;
+    `}
 
   display: flex;
   align-items: center;
@@ -57,11 +59,18 @@ export const GenCard = styled.a<CardProps>`
   flex-direction: column;
 
   transition: background-color 0.2s;
-  &:hover{
+  &:hover {
     background-color: ${shade(0.2, '#ffcc03')};
     transform: scale(0.98);
   }
-  
+
   cursor: pointer;
-  
+`;
+
+export const InfoCard = styled(GenCard)`
+  justify-content: space-between;
+
+  p {
+    text-align: center;
+  }
 `;

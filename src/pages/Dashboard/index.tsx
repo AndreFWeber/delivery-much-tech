@@ -1,33 +1,31 @@
 /* eslint-disable radix */
 /* eslint-disable array-callback-return */
-import React, { useState, useEffect, useContext, useCallback } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  useCallback,
+  ReactElement,
+  Component,
+} from 'react';
 import { CgPokemon } from 'react-icons/cg';
 import {
   GiBirdClaw,
-  GiValley,
+  GiTrail,
   GiRunningNinja,
-  GiSpill,
-  GiChoice,
+  GiMightyForce,
+  GiStack,
+  GiGiantSquid,
 } from 'react-icons/gi';
 import * as ReactIcons from 'react-icons/all';
 import api from '../../services/api';
 import { GenerationContext } from '../../context/GenerationContext';
-import { Header, Deck, GenCard, Decko } from './styles';
+import { Header, Deck, GenCard, Decko, InfoCard } from './styles';
 
-/*
-move -> GiRunningNinja
-abili -> GiBirdClaw, GiTopPaw, GiTightrope
-GiValley, GiTrail
-version GiChoice
-*/
 interface Generation {
   name: string;
   url: string;
 }
-
-type GetIconProps = {
-  icon: keyof typeof ReactIcons;
-};
 
 const Dashboard: React.FC = () => {
   const menuCards: { [key: string]: any } = {
@@ -38,14 +36,7 @@ const Dashboard: React.FC = () => {
     types: 'Types',
     version_groups: 'Version Groups',
   };
-  const menuIcons: { [key: string]: any } = {
-    abilities: 'GiBirdClaw',
-    main_region: 'GiValley',
-    moves: 'GiRunningNinja',
-    pokemon_species: 'CgPokemon',
-    types: 'GiSpill',
-    version_groups: 'GiChoice',
-  };
+
   const [genCards, setGenCards] = useState<Generation[]>([]);
   const { name, data, getGeneration } = useContext(GenerationContext);
   const [activeCard, setActiveCard] = useState<Generation>({
@@ -60,12 +51,43 @@ const Dashboard: React.FC = () => {
     },
     [getGeneration],
   );
-  /*
-  const getIcon = ({ icon }: GetIconProps): any => {
-    const TagName = ReactIcons[icon];
-    return <TagName />;
+
+  const getIcon = (choice: string): ReactElement => {
+    let a = null;
+    switch (choice) {
+      case 'abilities': {
+        a = GiBirdClaw;
+        break;
+      }
+      case 'main_region': {
+        a = GiTrail;
+        break;
+      }
+      case 'moves': {
+        a = GiRunningNinja;
+        break;
+      }
+      case 'pokemon_species': {
+        a = CgPokemon;
+        break;
+      }
+      case 'types': {
+        a = GiMightyForce;
+        break;
+      }
+      case 'version_groups': {
+        a = GiStack;
+        break;
+      }
+      default: {
+        a = GiGiantSquid;
+        break;
+      }
+    }
+
+    const icon = React.createElement(a);
+    return <div style={{ fontSize: 40 }}>{icon}</div>;
   };
-*/
 
   useEffect(() => {
     async function getGenerations(): Promise<void> {
@@ -109,11 +131,9 @@ const Dashboard: React.FC = () => {
             ) {
               return <></>;
             }
-            console.log('TESTE::::', card[0]);
-            const icon = React.createElement(menuIcons[card[0]]);
 
             return (
-              <GenCard
+              <InfoCard
                 key={card[0]}
                 active={activeCard.name === ''}
                 onClick={e => {
@@ -121,21 +141,13 @@ const Dashboard: React.FC = () => {
                 }}
               >
                 <p>{menuCards[card[0]]}</p>
-              </GenCard>
+                {getIcon(card[0])}
+              </InfoCard>
             );
           })}
       </Decko>
     </>
   );
 };
-/*
-            <GiBirdClaw/>
-            <GiValley/>
-            <GiRunningNinja/>
-            <GiSpill/>
-            <GiChoice/>
 
-
-
-*/
 export default Dashboard;

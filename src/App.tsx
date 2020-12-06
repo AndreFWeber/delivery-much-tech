@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import {GenerationProvider} from './context/GenerationContext';
+import { GenerationProvider } from './context/GenerationContext';
 import GlobalStyle from './styles/global';
 import Routes from './routes';
 

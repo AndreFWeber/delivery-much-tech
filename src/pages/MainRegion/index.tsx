@@ -47,7 +47,7 @@ const MainRegion: React.FC = () => {
     <>
       <Header title="Main Region" subtitle={data.name} goBackLink="/" />
       <RegionName>{name}</RegionName>
-      {data && <Pokeball data={locations} item="pokemon-species" />}
+      {data && <Pokeball data={locations} item="location" />}
     </>
   );
 };

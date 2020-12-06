@@ -19,7 +19,7 @@ import {
 import api from '../../services/api';
 import { Header } from '../../components/Header';
 import { GenerationContext } from '../../context/GenerationContext';
-import { Deck, GenCard, Decko, InfoCard } from './styles';
+import { Deck, GenCard, Decko, Linker } from './styles';
 
 interface Generation {
   name: string;
@@ -133,14 +133,10 @@ const Dashboard: React.FC = () => {
             }
 
             return (
-              <InfoCard
-                key={card[0]}
-                active={activeCard.name === ''}
-                href={`/${card[0]}`}
-              >
+              <Linker key={card[0]} to={`/${card[0]}`}>
                 <p>{menuCards[card[0]]}</p>
                 {getIcon(card[0])}
-              </InfoCard>
+              </Linker>
             );
           })}
       </Decko>

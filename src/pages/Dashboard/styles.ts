@@ -1,9 +1,50 @@
 import styled, { css } from 'styled-components';
 import { shade } from 'polished';
+import { Link } from 'react-router-dom';
 
 interface CardProps {
   active: boolean;
 }
+
+export const Linker = styled(Link).attrs(({ to }) => ({
+  to,
+}))`
+  border-style: solid;
+  color: white;
+  padding: 1rem;
+  height: 4rem;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  cursor: pointer;
+
+  border-radius: 50%;
+  width: 130px;
+  min-height: 130px;
+  justify-content: center;
+  opacity: 100%;
+  border-width: 1px;
+  border-color: black;
+  box-shadow: 0px 0px 10px 3px black;
+
+  transition: transform 0.2s;
+  &:hover {
+    transform: rotate(15deg);
+  }
+
+  background: linear-gradient(
+    to bottom,
+    #ad1515 45%,
+    #000000c9 5%,
+    #000000c9 50%,
+    #d4cbcb 50%
+  );
+  p {
+    text-align: center;
+  }
+`;
 
 export const Deck = styled.div`
   font: 16px Pokemon, sans-serif;
@@ -57,31 +98,4 @@ export const GenCard = styled.a<CardProps>`
   }
 
   cursor: pointer;
-`;
-
-export const InfoCard = styled(GenCard)`
-  border-radius: 50%;
-  width: 130px;
-  min-height: 130px;
-  justify-content: center;
-  opacity: 100%;
-  border-width: 1px;
-  border-color: black;
-  box-shadow: 0px 0px 10px 3px black;
-
-  transition: transform 0.2s;
-  &:hover {
-    transform: rotate(15deg);
-  }
-
-  background: linear-gradient(
-    to bottom,
-    #ad1515 45%,
-    #000000c9 5%,
-    #000000c9 50%,
-    #d4cbcb 50%
-  );
-  p {
-    text-align: center;
-  }
 `;

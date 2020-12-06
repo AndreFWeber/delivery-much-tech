@@ -45,7 +45,7 @@ const Pokemons: React.FC = () => {
 
   return (
     <>
-      <Header title="Pokemons" subtitle={data.name} />
+      <Header title="Pokemons" subtitle={data.name} goBackLink="/" />
       <Pokeball data={data.pokemon_species} item="pokemon-species" />
     </>
   );

@@ -92,7 +92,7 @@ const Dashboard: React.FC = () => {
   useEffect(() => {
     async function getGenerations(): Promise<void> {
       const response = await api.get('generation');
-      if (response && response.data && response.data.results) {
+      if (response && response.data && response.data) {
         const card: Generation = response.data.results[0];
         activateCard(card);
         setGenCards([...response.data.results]);
@@ -103,7 +103,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <>
-      <Header title="Pokemon Games" subtitle="" />
+      <Header title="Pokemon Games" subtitle="" goBackLink="" />
       <Deck>
         {genCards.map(card => {
           return (

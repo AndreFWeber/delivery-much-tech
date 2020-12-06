@@ -45,7 +45,7 @@ const Types: React.FC = () => {
 
   return (
     <>
-      <Header title="Types" subtitle={data.name} />
+      <Header title="Types" subtitle={data.name} goBackLink="/" />
       <Pokeball data={data.types} item="types" />
     </>
   );

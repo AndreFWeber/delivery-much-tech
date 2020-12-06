@@ -45,7 +45,7 @@ const Abilities: React.FC = () => {
 
   return (
     <>
-      <Header title="Abilitities" subtitle={data.name} />
+      <Header title="Abilitities" subtitle={data.name} goBackLink="/" />
       <Pokeball data={data.abilities} item="ability" />
     </>
   );

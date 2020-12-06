@@ -45,7 +45,7 @@ const VersionGroups: React.FC = () => {
 
   return (
     <>
-      <Header title="Version Groups" subtitle={data.name} />
+      <Header title="Version Groups" subtitle={data.name} goBackLink="/" />
       <Pokeball data={data.version_groups} item="version-group" />
     </>
   );

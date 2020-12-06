@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Dashboard from '../pages/Dashboard';
 import Abilities from '../pages/Abilities';
+import Ability from '../pages/Ability';
 import MainRegion from '../pages/MainRegion';
 import Moves from '../pages/Moves';
 import Pokemons from '../pages/Pokemons';
@@ -19,7 +20,7 @@ const Routes: React.FC = () => {
       <Route path="/pokemon_species/" exact component={Pokemons} />
       <Route path="/types/" exact component={Types} />
       <Route path="/version_groups/" exact component={VersionGroups} />
-      <Route path="/ability/:id" exact component={Abilities} />
+      <Route path="/ability/:id" exact component={Ability} />
     </Switch>
   );
 };

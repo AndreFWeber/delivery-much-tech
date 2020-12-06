@@ -31,6 +31,8 @@ export const Deck = styled.div`
 export const Decko = styled(Deck)`
   position: relative;
   top: calc(50% - 230px + 20px);
+  grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 `;
 
 export const GenCard = styled.a<CardProps>`
@@ -68,8 +70,22 @@ export const GenCard = styled.a<CardProps>`
 `;
 
 export const InfoCard = styled(GenCard)`
-  justify-content: space-between;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  justify-content: center;
+  opacity: 100%;
+  border-width: 1px;
+  border-color: black;
+  box-shadow: 0px 0px 10px 3px black;
 
+  background: linear-gradient(
+    to bottom,
+    #ad1515 45%,
+    #000000c9 5%,
+    #000000c9 50%,
+    #d4cbcb 50%
+  );
   p {
     text-align: center;
   }

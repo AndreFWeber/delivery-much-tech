@@ -22,7 +22,8 @@ export const Deck = styled.div`
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-
+  justify-items: center;
+  
   position: relative;
   top: calc(45% - 230px - 20px);
 `;

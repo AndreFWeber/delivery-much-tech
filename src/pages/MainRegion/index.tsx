@@ -32,7 +32,7 @@ const MainRegion: React.FC = () => {
   ]);
 
   useEffect(() => {
-    async function getGenerations(): Promise<void> {
+    async function getRegion(): Promise<void> {
       const region = data.main_region.url.split('v2/')[1];
       const response = await api.get(region);
       if (response && response.data) {
@@ -40,7 +40,7 @@ const MainRegion: React.FC = () => {
         setLocations([...(response.data.locations as [Location])]);
       }
     }
-    getGenerations();
+    getRegion();
   }, [data]);
 
   return (

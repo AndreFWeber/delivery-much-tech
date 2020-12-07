@@ -127,6 +127,8 @@ const Dashboard: React.FC = () => {
               (card[1] instanceof Array && card[1].length === 0) ||
               card[0] === 'name' ||
               card[0] === 'names' ||
+              card[0] === 'types' ||
+              card[0] === 'version_groups' ||
               card[0] === 'id'
             ) {
               return <></>;
